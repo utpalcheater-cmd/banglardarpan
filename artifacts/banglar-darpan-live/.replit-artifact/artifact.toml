@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Banglar Darpan LIVE"
+description = "A premium international Bengali live broadcast platform with six official YouTube channels, a first-visit promo, responsive channel guide, live status, and broadcast navigation designed for desktop and mobile viewers."
+version = "1.0.0"
+id = "artifacts/banglar-darpan-live"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21411
+
+[services.development]
+run = "pnpm --filter @workspace/banglar-darpan-live run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/banglar-darpan-live", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/banglar-darpan-live/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21411"
+BASE_PATH = "/"

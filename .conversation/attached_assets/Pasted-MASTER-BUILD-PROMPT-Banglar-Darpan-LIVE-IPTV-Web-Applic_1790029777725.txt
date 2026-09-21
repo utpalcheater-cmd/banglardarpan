@@ -1,0 +1,916 @@
+MASTER BUILD PROMPT
+
+Banglar Darpan LIVE IPTV Web Application
+
+You are the lead product engineer, UI/UX designer, frontend engineer, and deployment engineer for this project.
+
+Upgrade and rebuild the existing Banglar Darpan LIVE IPTV web application into a premium, production-ready international television broadcast platform.
+
+PRODUCTION TARGET
+
+Live application URL:
+https://iptv.uksai.co.uk
+
+This is a Banglar Darpan LIVE product hosted within the UKSAI ecosystem.
+
+Do NOT redesign this as a UKSAI corporate website.
+
+The visitor-facing identity must be entirely:
+
+বাংলার দর্পণ LIVE
+Banglar Darpan LIVE
+
+The visual experience should feel like a modern international television/news network, not a local IPTV template and not a generic web dashboard.
+
+⸻
+
+1. FIRST: INSPECT THE EXISTING PROJECT
+
+Before changing anything:
+
+1. Inspect the complete existing project.
+2. Identify the current framework, components, routing, assets, CSS architecture, state management and deployment configuration.
+3. Identify which existing functionality is already working.
+4. Preserve useful existing functionality.
+5. Do not blindly replace the entire application if a better incremental architecture is possible.
+6. Remove obsolete, duplicate, broken or placeholder UI where appropriate.
+7. Do not create fake functionality merely to make the interface look complete.
+
+Then implement the upgrade directly in the existing project.
+
+Do not stop at writing code.
+
+After implementation:
+
+* run the application
+* inspect the actual rendered UI
+* test every major interaction
+* test stream switching
+* test the promo modal
+* test desktop and mobile layouts
+* test responsive overflow
+* fix every issue discovered
+* verify the production build
+
+⸻
+
+2. BRAND IDENTITY
+
+Create a premium, original vector SVG logo for:
+
+বাংলার দর্পণ LIVE
+
+The logo should communicate:
+
+* international television network
+* live broadcast
+* modern journalism
+* premium technology
+* Bengali identity
+* global audience
+
+Logo visual language
+
+Use:
+
+* sleek metallic/glass circular or ring emblem
+* subtle world/globe visual
+* crisp Bengali typography
+* sophisticated crimson LIVE indicator
+* restrained metallic-gold detailing
+* premium glass/reflection treatment
+* clean geometry
+* strong readability at small sizes
+
+Avoid:
+
+* village aesthetic
+* traditional/local newspaper aesthetic
+* cheap IPTV template appearance
+* excessive ornamentation
+* cartoon graphics
+* generic AI-looking logo
+* excessive gradients
+* clutter
+
+The design should feel closer to a premium international broadcast network than a local television website.
+
+The Bengali identity must remain clearly visible.
+
+⸻
+
+3. PLAYER WATERMARK
+
+Create a clean Banglar Darpan LIVE watermark.
+
+It must remain completely responsive.
+
+The watermark must:
+
+* never overflow
+* never clip
+* remain within the player shell
+* use max-width: 100%
+* use object-fit: contain
+* use relative/absolute positioning correctly
+* scale down appropriately on mobile
+
+IMPORTANT:
+
+Do not place an HTML overlay in a way that obscures or interferes with YouTube’s player controls or video content.
+
+Use the player shell/broadcast chrome rather than covering YouTube controls.
+
+⸻
+
+4. MAIN APPLICATION STRUCTURE
+
+Build the application around this hierarchy:
+
+Banglar Darpan LIVE
+│
+├── Header / Broadcast Identity
+│
+├── Main Broadcast Stage
+│   ├── Active Channel
+│   ├── YouTube Player
+│   ├── Broadcast Identity
+│   └── Player Controls
+│
+├── Channel Selector
+│
+├── EPG / Channel Guide
+│
+├── BREAKING NEWS Ticker
+│
+└── Supporting Broadcast Information
+
+The player must be the visual centerpiece.
+
+Do not make the interface resemble a news article homepage.
+
+This is an IPTV/broadcast experience.
+
+⸻
+
+5. RESPONSIVE PLAYER ENGINE
+
+Create a master container:
+
+.bd-stage
+
+and player wrapper:
+
+.bd-player-shell
+
+with:
+
+.bd-player
+
+The player must strictly follow:
+
+.bd-player {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+}
+
+The iframe must use:
+
+iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+}
+
+Never allow the player to push the page beyond the viewport.
+
+There must be ZERO unintended horizontal scrolling.
+
+Test at minimum:
+
+* 320px
+* 360px
+* 375px
+* 390px
+* 414px
+* 768px
+* 1024px
+* 1280px
+* 1440px
+* 1920px
+
+Fix every:
+
+* overflow
+* clipping
+* text collision
+* stretched element
+* broken aspect ratio
+* off-screen button
+* modal overflow
+* sidebar overflow
+
+⸻
+
+6. YOUTUBE PLAYER ARCHITECTURE
+
+Use official YouTube embedded players.
+
+Use:
+
+https://www.youtube.com/embed/VIDEO_ID
+
+Do NOT create fake video players.
+
+Use the YouTube IFrame Player API where appropriate.
+
+Enable programmatic control for:
+
+* play
+* pause
+* mute
+* unmute
+* player state
+* stream switching
+* error handling
+* fullscreen
+
+Do not create six YouTube players simultaneously.
+
+Only load/activate the currently selected stream.
+
+When the user changes channels, update the existing player rather than creating multiple simultaneous players.
+
+Only ONE stream should be active at a time.
+
+⸻
+
+7. VERIFIED CHANNEL DATABASE
+
+Create a structured channel database.
+
+Use these exact YouTube IDs.
+
+Stream 1
+
+Name:
+
+Banglar Darpan News Stream 1
+
+YouTube ID:
+
+gYXaPTDatis
+
+URL:
+
+https://www.youtube.com/watch?v=gYXaPTDatis
+
+Stream 2
+
+Name:
+
+Banglar Darpan News Stream 2
+
+YouTube ID:
+
+TbPVHEx_EM4
+
+URL:
+
+https://www.youtube.com/watch?v=TbPVHEx_EM4
+
+Stream 3
+
+Name:
+
+Banglar Darpan News Stream 3
+
+YouTube ID:
+
+pHuwAwJdsdY
+
+URL:
+
+https://www.youtube.com/watch?v=pHuwAwJdsdY
+
+Stream 4
+
+Name:
+
+Banglar Darpan News Stream 4
+
+YouTube ID:
+
+j9SqI_JZ8qI
+
+URL:
+
+https://www.youtube.com/watch?v=j9SqI_JZ8qI
+
+Stream 5
+
+Name:
+
+Banglar Darpan News Stream 5
+
+YouTube ID:
+
+WuyDaw5colo
+
+URL:
+
+https://www.youtube.com/watch?v=WuyDaw5colo
+
+Stream 6
+
+Name:
+
+Banglar Darpan News Stream 6
+
+YouTube ID:
+
+jdjRIbYAA3g
+
+URL:
+
+https://www.youtube.com/watch?v=jdjRIbYAA3g
+
+Promo / Shorts
+
+Name:
+
+Banglar Darpan LIVE Promo
+
+YouTube ID:
+
+vf5Z8GT0AH0
+
+URL:
+
+https://youtu.be/vf5Z8GT0AH0
+
+Do not alter these IDs.
+
+Do not invent replacement streams.
+
+⸻
+
+8. CHANNEL SWITCHER
+
+Desktop:
+
+Create a polished broadcast channel guide/sidebar.
+
+Mobile:
+
+Create a horizontally scrollable, touch-friendly channel selector.
+
+Mobile requirements:
+
+* horizontal scrolling
+* no wrapping
+* touch friendly
+* snap-friendly cards
+* active channel clearly visible
+* no body-level horizontal overflow
+
+Use labels such as:
+
+LIVE 01
+LIVE 02
+LIVE 03
+LIVE 04
+LIVE 05
+LIVE 06
+
+Do not call them “servers” in the primary UI.
+
+The user is switching broadcast channels, not technical servers.
+
+A technical server switcher can exist internally if needed, but the viewer-facing terminology should be:
+
+Channel
+
+⸻
+
+9. ACTIVE CHANNEL PRESENTATION
+
+Clearly display:
+
+* channel name
+* LIVE status
+* active indicator
+* current broadcast
+* channel number
+
+Example:
+
+● LIVE
+Banglar Darpan News 01
+
+Use a subtle animated LIVE indicator.
+
+Do not use excessive flashing.
+
+Respect:
+
+prefers-reduced-motion
+
+⸻
+
+10. INTRO / PROMO MODAL
+
+On first visit, display an elegant premium glassmorphism intro modal.
+
+Purpose:
+
+Welcome viewers to Banglar Darpan LIVE.
+
+The modal must contain the YouTube promo:
+
+vf5Z8GT0AH0
+
+Use the official YouTube embed.
+
+Present it inside a responsive vertical preview card.
+
+Autoplay
+
+Attempt:
+
+autoplay
+muted
+
+where browser policy allows.
+
+Do NOT assume autoplay is guaranteed.
+
+If autoplay is blocked:
+
+* show a clear play button
+* do not throw an application error
+* continue functioning normally
+
+Controls
+
+Provide:
+
+Watch Promo
+
+and
+
+Continue to Live TV
+
+Also provide:
+
+✕ Close
+
+The close button must be keyboard accessible.
+
+⸻
+
+11. LOCAL STORAGE
+
+The promo should not annoy returning visitors.
+
+Use:
+
+banglarDarpanPromoDismissed
+
+in localStorage.
+
+After the user dismisses or completes the promo, remember the state.
+
+Do not repeatedly show the modal on every page load.
+
+Provide a clean way to reset the state during development/testing.
+
+⸻
+
+12. BROADCAST THEME
+
+Use a premium dark broadcast glassmorphism design.
+
+Primary background:
+
+#0b0f19
+
+Primary crimson:
+
+#e50914
+
+Use restrained gold highlights.
+
+Visual characteristics:
+
+* deep dark surfaces
+* glass panels
+* subtle blur
+* thin borders
+* controlled shadows
+* subtle crimson glow
+* restrained gold
+* premium typography
+* strong spacing
+* clean hierarchy
+
+Do not make the whole screen glow red.
+
+Do not use excessive glass effects.
+
+The interface should remain readable and professional.
+
+⸻
+
+13. HEADER
+
+Create a premium broadcast header.
+
+Left:
+
+Banglar Darpan LIVE logo.
+
+Center or navigation area:
+
+broadcast identity/status.
+
+Right:
+
+appropriate controls such as:
+
+* EPG
+* channel guide
+* fullscreen
+* account/settings if already supported
+
+Do not introduce unnecessary features simply for decoration.
+
+⸻
+
+14. PLAYER CONTROLS
+
+Provide quick controls for:
+
+* Play/Pause where technically appropriate
+* Mute/Unmute
+* Fullscreen
+* Channel Switch
+* EPG / Channel Guide
+
+Where browser support allows, support Picture-in-Picture without breaking the main experience.
+
+Controls must be:
+
+* touch friendly
+* keyboard accessible
+* clearly labelled
+* visually consistent
+
+⸻
+
+15. BREAKING NEWS TICKER
+
+Place a broadcast ticker directly below the main player.
+
+Design:
+
+[ BREAKING NEWS ]  scrolling headline content...
+
+Use:
+
+* crimson BREAKING NEWS badge
+* animated horizontal ticker
+* premium broadcast typography
+* fixed-height layout
+* smooth motion
+
+Respect:
+
+prefers-reduced-motion
+
+When reduced motion is enabled, provide a non-animated/static presentation.
+
+Do not allow ticker text to create horizontal page overflow.
+
+⸻
+
+16. EPG / CHANNEL GUIDE
+
+Create a polished EPG/channel guide.
+
+It should visually communicate:
+
+* channel
+* current programme
+* upcoming programme
+* LIVE state
+
+Use realistic interface structure but do NOT fabricate real programme information.
+
+If actual schedule data is unavailable, clearly use neutral labels such as:
+
+LIVE BROADCAST
+Now Playing
+Upcoming
+
+Do not invent fake programme names and present them as real broadcasts.
+
+⸻
+
+17. MOBILE EXPERIENCE
+
+The mobile experience is a first-class design target.
+
+Do not simply shrink the desktop layout.
+
+At mobile widths:
+
+* player remains perfectly proportional
+* no clipping
+* no horizontal page overflow
+* controls remain accessible
+* channel selector becomes horizontal
+* modal fits viewport
+* logo scales correctly
+* ticker remains contained
+* typography remains readable
+* touch targets remain large enough
+
+Test on narrow 320px width.
+
+⸻
+
+18. DESKTOP EXPERIENCE
+
+At desktop widths:
+
+* large central broadcast player
+* channel guide/sidebar
+* EPG
+* broadcast controls
+* breaking ticker
+* strong visual hierarchy
+* premium international television aesthetic
+
+Do not waste excessive space on empty panels.
+
+⸻
+
+19. ACCESSIBILITY
+
+Implement:
+
+* keyboard navigation
+* visible focus states
+* ARIA labels
+* semantic buttons
+* accessible modal
+* accessible close button
+* sufficient contrast
+* reduced-motion support
+
+The application should remain usable without relying solely on mouse interaction.
+
+⸻
+
+20. PERFORMANCE
+
+Prioritize fast initial load.
+
+Do not load six YouTube players at once.
+
+Lazy-load heavy resources where practical.
+
+Avoid unnecessary animation libraries.
+
+Avoid unnecessary third-party dependencies.
+
+Do not introduce a large framework solely for visual effects.
+
+Keep the application responsive and efficient.
+
+⸻
+
+21. ERROR HANDLING
+
+If a YouTube stream is unavailable:
+
+Do not break the entire application.
+
+Show a professional message such as:
+
+This broadcast stream is currently unavailable.
+Please try another Banglar Darpan channel.
+
+Provide a channel-switch option.
+
+Handle:
+
+* player errors
+* autoplay failure
+* network failure
+* unavailable video
+* invalid player state
+
+gracefully.
+
+⸻
+
+22. SECURITY / CONFIGURATION
+
+Do not expose unnecessary secrets in frontend code.
+
+Do not add fake API keys.
+
+Do not create hardcoded credentials.
+
+Keep configuration clean and production-safe.
+
+⸻
+
+23. SEO / METADATA
+
+Use appropriate metadata for:
+
+Banglar Darpan LIVE
+
+Include:
+
+* title
+* description
+* favicon
+* Open Graph metadata
+* Twitter/X metadata where appropriate
+
+Suggested title:
+
+বাংলার দর্পণ LIVE | Banglar Darpan LIVE
+
+Suggested description:
+
+বাংলার দর্পণ LIVE, a global Bengali live broadcast and news streaming platform.
+
+Do not describe this as UKSAI in the public-facing title or description.
+
+⸻
+
+24. FAVICON / APP ICON
+
+Create a matching favicon/app icon based on the new Banglar Darpan LIVE visual identity.
+
+It must remain recognizable at small sizes.
+
+Do not use a generic video icon.
+
+⸻
+
+25. NO PLACEHOLDERS
+
+Do not leave:
+
+* Lorem Ipsum
+* fake logos
+* generic stock IPTV labels
+* broken buttons
+* empty cards
+* “Coming Soon” placeholders unless genuinely necessary
+* fake news
+* fake stream information
+* dummy URLs
+
+Every visible control should either work or not be displayed.
+
+⸻
+
+26. VISUAL QUALITY BAR
+
+The final product should feel like a serious international broadcast platform.
+
+Reference design qualities:
+
+* premium television network
+* modern streaming service
+* international news broadcaster
+* sophisticated glass UI
+* cinematic broadcast stage
+
+But do NOT copy any specific company’s branding, logo or copyrighted interface.
+
+Create an original Banglar Darpan visual system.
+
+The result must NOT look:
+
+* rural
+* old-fashioned
+* like a local cable TV website
+* like a WordPress IPTV template
+* like a generic admin dashboard
+* like an AI-generated mockup
+
+⸻
+
+27. FINAL QA
+
+Before declaring the task complete, actually run the application.
+
+Perform a complete QA pass.
+
+Test:
+
+1. First visit promo modal
+2. Promo autoplay/muted fallback
+3. Close button
+4. localStorage dismissal
+5. Continue to Live TV
+6. Stream 1
+7. Stream 2
+8. Stream 3
+9. Stream 4
+10. Stream 5
+11. Stream 6
+12. Channel switching
+13. Mute/unmute
+14. Fullscreen
+15. EPG
+16. Breaking ticker
+17. Desktop layout
+18. Mobile layout
+19. 320px viewport
+20. 375px viewport
+21. 414px viewport
+22. Tablet
+23. 1080p desktop
+24. 1440px desktop
+25. 1920px desktop
+
+Verify:
+
+NO horizontal overflow
+NO clipped logo
+NO broken player
+NO overlapping controls
+NO modal overflow
+NO broken mobile navigation
+NO simultaneous YouTube players
+NO console-breaking errors
+NO fake data
+NO placeholder content
+
+⸻
+
+28. DEPLOYMENT
+
+Production target:
+
+https://iptv.uksai.co.uk
+
+Ensure the final application is configured for production deployment.
+
+Verify:
+
+* build succeeds
+* application starts correctly
+* routing works
+* assets load
+* HTTPS works
+* responsive layout works
+* YouTube embeds work
+* production URL serves the correct Banglar Darpan LIVE application
+
+Do not redirect visitors to the UKSAI homepage.
+
+The final public experience must remain:
+
+বাংলা দর্পণ LIVE
+
+⸻
+
+29. FINAL INSTRUCTION
+
+Do not merely give me an implementation plan.
+
+Do not stop after generating components.
+
+Do not explain what you could do.
+
+Build it. Run it. Inspect it. Fix it. Test it. Deploy it.
+
+If the existing architecture needs modification, make the necessary changes.
+
+If you discover obsolete implementation choices, replace them with a cleaner modern implementation.
+
+If you discover responsive bugs, fix them before completion.
+
+If a requested YouTube feature is technically restricted by browser or YouTube policy, implement the closest compliant production solution rather than leaving a broken feature.
+
+The final result must be a polished, functional, responsive, production-ready:
+
+Banglar Darpan LIVE IPTV Web Application
+
+at:
+
+https://iptv.uksai.co.uk
