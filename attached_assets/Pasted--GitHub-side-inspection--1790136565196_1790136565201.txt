@@ -1,0 +1,67 @@
+আমি GitHub-side inspection সম্পন্ন করেছি। কোনো ফাইল পরিবর্তন করিনি।
+
+## যাচাই ফলাফল
+
+| বিষয় | অবস্থা |
+|---|---|
+| Repository | `utpalcheater-cmd/banglar-darpan-live` পাওয়া গেছে |
+| Visibility | Public |
+| Branch | `main` |
+| Latest commit | `1e68668d3e6964a412c51f1357150d4bc4348999` |
+| React/Vite app | হ্যাঁ |
+| Root `vercel.json` | আছে |
+| `pnpm-lock.yaml` | আছে |
+| Banglar Darpan package | `@workspace/banglar-darpan-live` |
+| Open issues | নেই |
+| Repository পরিবর্তন | করিনি |
+
+### Vercel configuration
+
+Root [`vercel.json`](https://github.com/utpalcheater-cmd/banglar-darpan-live/blob/main/vercel.json)-এ চাওয়া configuration সঠিকভাবে আছে:
+
+- Framework: `vite`
+- Install command: `pnpm install --frozen-lockfile`
+- Build command: `pnpm --filter @workspace/banglar-darpan-live run build`
+- Output directory: `artifacts/banglar-darpan-live/dist/public`
+- SPA rewrite: `/` এবং অন্যান্য route `index.html`-এ পাঠানো হয়েছে
+
+### Application configuration
+
+`artifacts/banglar-darpan-live/package.json`-এ:
+
+- Package name: `@workspace/banglar-darpan-live`
+- Build script: `vite build --config vite.config.ts`
+- Typecheck script: `tsc -p tsconfig.json --noEmit`
+
+অতএব Vercel-এর দেওয়া build command package structure-এর সঙ্গে সামঞ্জস্যপূর্ণ।
+
+## গুরুত্বপূর্ণ সীমাবদ্ধতা
+
+এই GitHub inspection environment-এ সরাসরি shell/terminal নেই। তাই আমি নিজে বাস্তবে নিচের command চালাতে পারিনি:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm --filter @workspace/banglar-darpan-live run typecheck
+pnpm --filter @workspace/banglar-darpan-live run build
+```
+
+সুতরাং **configuration ও source structure অনুযায়ী repository deployment-ready**, কিন্তু **actual install/typecheck/build pass হয়েছে—এটি এখনো নিশ্চিতভাবে বলা যাচ্ছে না**।
+
+## এখন যা বাকি
+
+1. GitHub AI বা local environment-এ উপরোক্ত তিনটি command চালানো
+2. Build pass করলে Vercel-এ repository import করা
+3. `banglar-darpan-live` নামে Vercel project তৈরি করা
+4. `main` branch থেকে production deployment করা
+5. `tv.dainikjahan.com` custom domain যুক্ত করা
+6. Vercel যে exact DNS record দেবে, DNS provider-এ সেটি যোগ করা
+7. Domain verification সম্পন্ন করা
+
+## বর্তমান সিদ্ধান্ত
+
+**Repository configuration সঠিক এবং Vercel deployment-এর জন্য প্রস্তুত বলে মনে হচ্ছে। কোনো deployment-blocking source/config error আমি শনাক্ত করিনি।**
+
+তবে final “ready” confirmation-এর আগে build commands-এর actual output প্রয়োজন। Repository ও latest commit সরাসরি এখানে দেখা যাবে:
+
+- Repository: https://github.com/utpalcheater-cmd/banglar-darpan-live
+- Latest commit: https://github.com/utpalcheater-cmd/banglar-darpan-live/commit/1e68668d3e6964a412c51f1357150d4bc4348999
